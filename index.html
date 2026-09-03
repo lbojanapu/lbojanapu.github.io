@@ -1,11 +1,911 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lakshminarayana B Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lakshminarayana Bojanapu | AI Systems Leader | Agentic AI | AI Safety | Data Platforms">
+  <meta name="author" content="Lakshminarayana Bojanapu">
+  <title>Lakshminarayana Bojanapu | AI Systems Leader | Agentic AI | AI Safety | Data Platforms</title>
+
+    <style>
+    :root {
+      --bg: #08090b;
+      --surface: #101216;
+      --surface-2: #15181d;
+      --border: #272b33;
+      --text: #f2f4f7;
+      --muted: #9aa1ad;
+      --soft: #c8cdd5;
+      --accent: #8ab4f8;
+      --accent-2: #a8d5ba;
+      --max: 1120px;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% 5%, rgba(138,180,248,.09), transparent 28rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(8,9,11,.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0 90px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--soft);
+      background: rgba(255,255,255,.025);
+      font-size: .78rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 12px rgba(168,213,186,.5);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 24px 0 20px;
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      line-height: .96;
+      letter-spacing: -.065em;
+      font-weight: 760;
+    }
+
+    .hero h1 .muted {
+      color: #767c86;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      color: var(--soft);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 17px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: .9rem;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+
+    .button:hover {
+      border-color: #464c57;
+      transform: translateY(-1px);
+      background: var(--surface-2);
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: #090a0c;
+      border-color: var(--text);
+    }
+
+    /* Sections */
+    section {
+      padding: 95px 0;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      color: var(--muted);
+      margin-bottom: 42px;
+    }
+
+    /* Focus cards */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+    }
+
+    .card-number {
+      color: #626874;
+      font-size: .78rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      margin-bottom: 30px;
+    }
+
+    .card h3 {
+      margin: 0 0 9px;
+      font-size: 1.2rem;
+      letter-spacing: -.02em;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: .94rem;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 25px;
+      align-items: start;
+      padding: 29px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      transition: .2s ease;
+    }
+
+    .project:hover {
+      border-color: #3b414b;
+      background: var(--surface-2);
+    }
+
+    .project-index {
+      color: #5e6570;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .8rem;
+    }
+
+    .project h3 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+      letter-spacing: -.025em;
+    }
+
+    .project p {
+      max-width: 720px;
+      color: var(--muted);
+      margin: 0 0 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #aeb4be;
+      font: 500 .72rem ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .project-link {
+      color: var(--accent);
+      white-space: nowrap;
+      font-size: .85rem;
+      font-weight: 650;
+    }
+
+    /* Philosophy */
+    .philosophy {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .principles {
+      display: grid;
+      gap: 24px;
+    }
+
+    .principle {
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .principle h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .principle p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .system-line {
+      margin-top: 28px;
+      padding: 19px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #0c0e11;
+      color: #b8bec8;
+      font: .78rem/1.8 ui-monospace, SFMono-Regular, Menlo, monospace;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    /* Stack */
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stack-row {
+      padding: 20px 22px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .stack-row strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: .86rem;
+    }
+
+    .stack-row span {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+
+    /* Open Source */
+    .opensource-feature {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 45px;
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 90% 15%, rgba(138,180,248,.08), transparent 20rem),
+        var(--surface);
+    }
+
+    .opensource-kicker {
+      color: var(--accent-2);
+      font: 700 .72rem ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      margin-bottom: 15px;
+    }
+
+    .opensource-main h2 {
+      margin-bottom: 15px;
+    }
+
+    .opensource-main p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .opensource-main strong {
+      color: var(--soft);
+      font-weight: 600;
+    }
+
+    .opensource-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .opensource-meta {
+      display: grid;
+      align-content: start;
+      gap: 0;
+      border-left: 1px solid var(--border);
+      padding-left: 30px;
+    }
+
+    .meta-item {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .meta-item:first-child {
+      padding-top: 0;
+    }
+
+    .meta-label {
+      display: block;
+      color: #626874;
+      font: 600 .68rem ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .meta-item span:last-child {
+      color: var(--soft);
+      font-size: .86rem;
+    }
+
+    .opensource-note {
+      max-width: 760px;
+      color: #737a85;
+      font-size: .84rem;
+      margin: 18px 0 0;
+    }
+
+    /* About */
+    .about {
+      max-width: 850px;
+    }
+
+    .about p {
+      color: var(--soft);
+      font-size: 1.05rem;
+    }
+
+    /* Contact */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: end;
+    }
+
+    .contact-copy {
+      max-width: 680px;
+    }
+
+    .contact-copy p {
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 30px 0 45px;
+      color: #626874;
+      font-size: .78rem;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0 70px;
+      }
+
+      section { padding: 70px 0; }
+
+      .focus-grid,
+      .stack {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .project-link {
+        margin-top: 6px;
+      }
+
+      .opensource-feature {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .opensource-meta {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+        padding-left: 0;
+        padding-top: 10px;
+      }
+
+      .philosophy,
+      .contact {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Welcome to My Portfolio!</h1>
-    <p>II would be adding my portfolio list and key skilss and projects that i made impact and my learnings. Its coming soon.!!!</p>
+
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top">LB<span> / AI + DATA</span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#approach">Approach</a>
+        <a href="#stack">Stack</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <header class="hero">
+      <div class="container">
+        <div class="eyebrow">AI & Data Platforms · Bengaluru, India</div>
+
+        <h1>
+          Building AI systems
+          <span class="muted">that hold up in production.</span>
+        </h1>
+
+        <p class="hero-copy">
+          I am <strong>Lakshminarayana Bojanapu</strong>, an AI engineering leader with
+          14+ years across data platforms, analytics, AI/ML and system architecture.
+          I focus on the engineering layer where <strong>AI, data, software,
+          observability and responsible AI</strong> meet.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#work">Explore my work ↓</a>
+          <a class="button" href="https://github.com/lbojanapu" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="button" href="https://www.linkedin.com/in/lbojanapu/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="button" href="https://www.kaggle.com/lakshminarayana" target="_blank" rel="noopener">Kaggle ↗</a>
+
+          <a class="button" href="resume.pdf" target="_blank">Resume ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-label">01 / Selected Work</div>
+        <h2>Systems I build and study.</h2>
+        <p class="section-intro">
+          These projects are engineering case studies, not just demos.
+          Each one explores architecture, implementation, evaluation and
+          the trade-offs involved in moving an idea toward production.
+        </p>
+
+        <div class="projects">
+
+          <article class="project">
+            <div class="project-index">01</div>
+            <div>
+              <h3>AI Fashion Visual Search</h3>
+              <p>
+                A multimodal search system that detects garments from an uploaded
+                image, generates visual representations and retrieves visually
+                similar products from a structured catalog.
+              </p>
+              <div class="tags">
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Embeddings</span>
+                <span class="tag">Vector Search</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://github.com/lbojanapu/fashion-visual-search" aria-label="Fashion Visual Search repository">Repository ↗</a>
+          </article>
+
+          <article class="project">
+            <div class="project-index">02</div>
+            <div>
+              <h3>CSIRO Biomass Prediction</h3>
+              <p>
+                A kaggle hosted computer vision and deep learning system for pasture biomass
+                prediction, combining image representations with structured
+                field metadata and constrained target relationships.
+              </p>
+              <div class="tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">DINOv2</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Model Evaluation</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://www.kaggle.com/competitions/csiro-biomass" aria-label="CSIRO Biomass repository">Repository ↗</a>
+          </article>
+
+          <article class="project">
+            <div class="project-index">03</div>
+            <div>
+              <h3>BankeAuctions Data Platform</h3>
+              <p>
+                An on-premise ingestion platform for collecting, parsing,
+                validating and synchronizing auction listings with APIs,
+                background processing, persistence and observability.
+              </p>
+              <div class="tags">
+                <span class="tag">FastAPI</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Redis</span>
+                <span class="tag">Celery</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Grafana</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://github.com/lbojanapu/bankeauctions" aria-label="BankeAuctions repository">Repository ↗</a>
+          </article>
+
+          <article class="project">
+            <div class="project-index">04</div>
+            <div>
+              <h3>AI Safety & Vision Guardrails</h3>
+              <p>
+                Computer vision guardrail services for safety and privacy
+                scenarios, combining detection models to safegaurd worker safety in hazardous environments and API-based inference.
+              </p>
+              <div class="tags">
+                <span class="tag">YOLOv8</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Guardrails</span>
+                <span class="tag">Responsible AI</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://github.com/lbojanapu/ai-safety-vision-guardrails" aria-label="AI Safety repository">Repository ↗</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="container">
+        <div class="section-label">02 / Engineering Approach</div>
+
+        <div class="philosophy">
+          <div>
+            <h2>Models are one layer of the system.</h2>
+            <p class="section-intro">
+              Reliable AI requires the layers around the model to be engineered
+              just as carefully.
+            </p>
+          </div>
+
+          <div class="principles">
+            <div class="principle">
+              <h3>01 · Production over prototype</h3>
+              <p>
+                I think beyond the notebook: APIs, failure modes, queues,
+                data contracts, deployment, testing and observability.
+              </p>
+            </div>
+
+            <div class="principle">
+              <h3>02 · Measure before optimizing</h3>
+              <p>
+                Define useful metrics first, establish a baseline, then
+                optimize the component that actually limits the system.
+              </p>
+            </div>
+
+            <div class="principle">
+              <h3>03 · Responsible by architecture</h3>
+              <p>
+                Evaluation, explainability, privacy, safety and governance
+                should be considered part of system design.
+              </p>
+            </div>
+
+            <div class="principle">
+              <h3>04 · Simple interfaces, explicit boundaries</h3>
+              <p>
+                Complex systems become easier to operate when components have
+                clear responsibilities and contracts.
+              </p>
+            </div>
+
+            <div class="system-line">
+              DATA → MODEL → API → EVALUATION → GUARDRAILS → DEPLOYMENT → OBSERVABILITY
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="container">
+        <div class="section-label">04 / Technical Stack</div>
+        <h2>Tools are means, not the identity.</h2>
+        <p class="section-intro">
+          A broad engineering stack shaped by data platforms, AI applications,
+          backend systems and production operations.
+        </p>
+
+        <div class="stack">
+          <div class="stack-row">
+            <strong>Languages</strong>
+            <span>Python · SQL · C · C++</span>
+          </div>
+
+          <div class="stack-row">
+            <strong>AI / ML</strong>
+            <span>PyTorch · Transformers · Computer Vision · LLMs · Embeddings</span>
+          </div>
+
+          <div class="stack-row">
+            <strong>AI Engineering</strong>
+            <span>FastAPI · LangChain · LangGraph · RAG · Agentic AI · MCP</span>
+          </div>
+
+          <div class="stack-row">
+            <strong>Data</strong>
+            <span>PostgreSQL · SQLAlchemy · Redis · ETL · Data Pipelines</span>
+          </div>
+
+          <div class="stack-row">
+            <strong>Infrastructure</strong>
+            <span>Docker · Kubernetes · MicroK8s · Linux · GitLab CI/CD</span>
+          </div>
+
+          <div class="stack-row">
+            <strong>Observability</strong>
+            <span>Prometheus · Grafana · Structured Logging · System Metrics</span>
+          </div>
+
+          <div class="stack-row">
+            <strong>Responsible AI</strong>
+            <span>NIST AI RMF · EU AI Act · ISO/IEC 42001 · SHAP · LIME</span>
+          </div>
+
+          <div class="stack-row">
+            <strong>Architecture</strong>
+            <span>System Design · API Design · Data Architecture · AI Platforms</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="opensource">
+      <div class="container">
+        <div class="section-label">02 / Open Source Contributions</div>
+
+        <div class="opensource-feature">
+          <div class="opensource-main">
+            <div class="opensource-kicker">OPEN SOURCE CONTRIBUTOR</div>
+            <h2>Infosys Responsible AI Toolkit</h2>
+
+            <p>
+              <strong>Contributor to the Infosys Responsible AI Toolkit</strong>,
+              an open-source platform that provides APIs for integrating
+              Responsible AI capabilities into AI solutions.
+            </p>
+
+            <p>
+              The toolkit brings together engineering capabilities across
+              <strong>safety, security, privacy, explainability, fairness,
+              bias and hallucination detection</strong>, with modules spanning
+              LLM applications and traditional machine learning systems.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Responsible AI</span>
+              <span class="tag">AI Guardrails</span>
+              <span class="tag">LLM Safety</span>
+              <span class="tag">Explainability</span>
+              <span class="tag">Fairness</span>
+              <span class="tag">Privacy</span>
+              <span class="tag">Hallucination Detection</span>
+            </div>
+
+            <div class="opensource-actions">
+              <a
+                class="button primary"
+                href="https://github.com/Infosys/Infosys-Responsible-AI-Toolkit"
+                target="_blank"
+                rel="noopener"
+              >
+                View Contribution ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="opensource-meta">
+            <div class="meta-item">
+              <span class="meta-label">Role</span>
+              <span>Open Source Contributor</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Organization</span>
+              <span>Infosys</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Project</span>
+              <span>Responsible AI Toolkit</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">License</span>
+              <span>MIT</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="opensource-note">
+          This contribution reflects hands-on interest in building Responsible
+          AI capabilities as software, including guardrails, explainability,
+          fairness, privacy and AI evaluation.
+        </p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-label">05 / About</div>
+
+        <div class="about">
+          <h2>Engineering at the intersection of data and intelligence.</h2>
+
+          <p>
+            My career started with data and analytics engineering and evolved
+            toward architecture, AI/ML systems and responsible AI. That path
+            gives me a systems view of AI: models depend on data, applications
+            depend on APIs, production depends on infrastructure, and all of it
+            needs measurable behavior.
+          </p>
+
+          <p>
+            I enjoy problems where the answer is not simply "use a better model"
+            but requires understanding the entire system, finding the actual
+            bottleneck and engineering a solution that can be operated reliably.
+          </p>
+
+          <p>
+            My current interests include agentic AI, AI evaluation, multimodal
+            systems, AI infrastructure, observability and responsible deployment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact">
+        <div class="contact-copy">
+          <div class="section-label">06 / Contact</div>
+          <h2>Let's build something useful.</h2>
+          <p>
+            Interested in AI engineering, data platforms, agentic systems,
+            responsible AI or production architecture? Let's connect.
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:b.lakshmi@gmail.com">Email me ↗</a>
+          <a class="button" href="https://www.linkedin.com/in/lbojanapu/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="button" href="https://github.com/lbojanapu" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="button" href="https://www.kaggle.com/lakshminarayana" target="_blank" rel="noopener">Kaggle ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <span>© 2026 Lakshminarayana Bojanapu</span>
+    <span>AI · Data · Systems · Responsible AI</span>
+  </footer>
+
 </body>
 </html>
